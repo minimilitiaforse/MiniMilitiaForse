@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Mini Militia Force</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: white;
+    }
+
+    
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px #000;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #0f0;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #222;
+      padding: 10px 0;
+      box-shadow: 0 2px 5px #000;
+    }
+
+    nav a {
+      position: relative;
+      color: #0f0;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 2px;
+      background-color: #0f0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #111;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0f0;
+    }
+
+    .contact-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0f0;
+    }
+
+    .contact-container label {
+      display: block;
+      margin-bottom: 5px;
+      color: #ccc;
+    }
+
+    .contact-container input,
+    .contact-container textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background: #222;
+      color: #0f0;
+      margin-bottom: 15px;
+    }
+
+    .contact-container button {
+      background: #0f0;
+      color: #111;
+      font-weight: bold;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-container button:hover {
+      background: #00cc00;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #666;
+      font-size: 0.9em;
+      box-shadow: 0 -2px 5px #000;
+    }
+  </style>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Mini Militia Force</h1>
+  </header>
+
+  <nav>
+    <a href="MyChannel.html">Home</a>
+    <a href="videos.html">Videos</a>
+    <a href="tips.html">Tips</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="user_name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="user_email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button  type="submit">Send Message</button>
+    </form>
+  </div>
+
+
+  <h1 style="text-align: center; color: #00cc00; font-family: Mulish sans-serif;">
+    or
+  </h1>
+
+ 
+<div style="padding:10px;border:3px ridge #0f0;color:#0f0;font-family:sans-serif; border-radius: 05px; text-align: center; ">
+<p >1. My name: <b>Onal Awanath</b></p>
+<p>2. Email: <b>onalawanath2010@gmail.com<br>onalawanath2010@outlook.com</b></p>
+<p>3. Phone Number: <b>+94 755 025 990<br></b>or<br><b>+94 783 016 426</p></b>
+</div>
+
+  <footer>
+    &copy; 2025 Mini Militia Force | Powered by Onal Awanath
+  </footer>
+
+  <script>
+    (function() {
+      emailjs.init("oUJrmbFbmZMv5C9tH"); // Public Key
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      emailjs.sendForm('service_02mqzwn', 'template_zi7ipwo', this)
+        .then(function() {
+          alert('Message sent successfully!');
+          document.getElementById('contact-form').reset();
+        }, function(error) {
+          alert('Failed to send message. Please try again.');
+          console.log('FAILED...', error);
+        });
+    });
+  </script>
+
+</body>
+</html>
